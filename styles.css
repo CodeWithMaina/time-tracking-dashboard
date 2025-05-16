@@ -33,7 +33,7 @@ body {
   gap: 1.5rem;
   max-width: 100%;
   margin: 0 auto;
-  height: 90vh;
+  /* height: 90vh; */
 }
 
 /* Profile Section */
@@ -42,46 +42,42 @@ body {
   border-radius: 1rem;
   overflow: hidden;
   display: grid;
-  grid-template-rows: auto auto;
+  grid-template-rows: 70% 30%;
 }
 
 .profile__info {
   background-color: var(--purple-600);
   padding: 2rem;
   border-radius: 1rem;
-  display: grid;
-  /* grid-template-columns: auto 1fr; */
-  grid-template-rows: auto auto auto;
-  align-items: center;
-  column-gap: 1rem;
-  row-gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 2rem;
 }
 
 .profile__image {
-  width: 70px;
+  width: 80px;
   border: 3px solid white;
   border-radius: 50%;
-  grid-row: span 2;
 }
 
 .profile__report {
   color: var(--navy-200);
   font-size: 0.9rem;
-  align-self: end;
-  grid-column: 2;
 }
 
 .profile__name {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 300;
-  grid-column: 2;
+  line-height: 1.2;
 }
 
 .profile__period {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   padding: 1.5rem 2rem;
-  align-items: center;
+  justify-content: space-around;
 }
 
 .period__option {
@@ -89,9 +85,9 @@ body {
   border: none;
   color: var(--purple-500);
   font-family: 'Rubik', sans-serif;
-  font-size: 1rem;
+  font-size: 1.125rem;
   cursor: pointer;
-  text-align: center;
+  text-align: left;
 }
 
 .period__option:hover {
@@ -100,6 +96,68 @@ body {
 
 .period__option--active {
   color: white;
+}
+
+/* Responsive Layout */
+@media (min-width: 768px) {
+  .profile {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .profile__info {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+  
+  .profile__name {
+    font-size: 1.75rem;
+  }
+  
+  .profile__period {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .period__option {
+    text-align: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile {
+    grid-template-columns: 1fr;
+    grid-template-rows: 70% 30%;
+    grid-row: span 2;
+  }
+  
+  .profile__info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+  }
+  
+  .profile__image {
+    width: 85px;
+  }
+  
+  .profile__name {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  .profile__period {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-left: 2rem;
+  }
+  
+  .period__option {
+    text-align: left;
+    font-size: 1rem;
+  }
 }
 
 /* General Cards Styles */
@@ -279,8 +337,8 @@ body {
   }
 
   .card__body {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
     align-items: center;
   }
 
